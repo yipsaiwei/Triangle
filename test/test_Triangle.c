@@ -12,7 +12,7 @@ void tearDown(void)
 
 void test_Side_given_3_2_1_expect_VALID()
 {
-    checkType sideType = checkNegativeOrZero(2, 2, 1);
+    checkType sideType = checkNegativeOrZero(3, 2, 1);
 	TEST_ASSERT_EQUAL(VALID, sideType);
 }
 
