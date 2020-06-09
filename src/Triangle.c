@@ -1,11 +1,20 @@
 #include "Triangle.h"
+#include "CException.h"
 
-checkType checkNegativeOrZero(int , int , int );
+
+//checkType checkNegativeOrZero(int , int , int );
+
+
 // TDD = Test-Driven Development
 // 1. Write test (next test)
 // 2. Write code to pass the test
 // 3. Run test; if test failing, go to step 2
 // 4. Go to step 1
+
+// Exception
+
+// Throw
+// Try-Catch
 
 /**
 	* Find out if a given triangle is one of thefollowing types
@@ -17,10 +26,13 @@ checkType checkNegativeOrZero(int , int , int );
 
 TriangleType getTriangleType(int side1, int side2, int side3)
 {
-	int	check;
-	check=checkNegativeOrZero(side1, side2, side3);
-	if (check==INVALID)
-		return UNKNOWN;
+	//CEXCEPTION_T ex;
+	//int	check;
+	//check=checkNegativeOrZero(side1, side2, side3);
+	if(side1<=0||side2<=0||side3<=0)
+		Throw(ERROR_INVALID_LENGTH);
+	//if (check==INVALID)
+	//	return UNKNOWN;
 	if (side1==side2||side2==side3||side1==side3)
 	{
 		if (side1==side3&&side3==side2)
@@ -33,6 +45,8 @@ TriangleType getTriangleType(int side1, int side2, int side3)
 
 }
 
+
+/*
 checkType checkNegativeOrZero(int side1, int side2, int side3)
 {
 	if(side1<=0||side2<=0||side3<=0)
@@ -40,4 +54,4 @@ checkType checkNegativeOrZero(int side1, int side2, int side3)
 	else
 		return VALID;
 }
-		
+*/		
