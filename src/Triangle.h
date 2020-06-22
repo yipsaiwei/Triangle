@@ -3,6 +3,7 @@
 
 
 #define ERROR_INVALID_LENGTH	0x14
+#define ERROR_NEGATIVE_VALUE	0x15
 typedef enum
 {
 	// 0	   1	         2	      3

@@ -1,7 +1,9 @@
 #include "unity.h"
+#include "Exception.h"
 #include "CException.h"
 #include "Triangle.h"
-
+#include <malloc.h> 
+#include <stdarg.h>
 
 CEXCEPTION_T ex;
 
@@ -14,6 +16,67 @@ void tearDown(void)
 {
 }
 
+int multiply (int valA, int valB)
+{
+	if (valB<0){
+		//Throw(ERROR_NEGATIVE_VALUE);
+		throwException(ERROR_NEGATIVE_VALUE,NULL, 0, "The operand valB cannot be negative: %d", valB);
+	}
+	if (valA<0){
+		//Throw(ERROR_NEGATIVE_VALUE);
+		throwException(ERROR_NEGATIVE_VALUE,NULL, 0, "The operand valA cannot be negative: %d", valA);
+	}
+	return valA*valB;
+}
+
+int addAndMultiplyPositives(int val1, int val2, int val3)
+{
+	//CEXCEPTION_T ex;
+	//Try{
+	//return multiply(val1+val2, val3);
+	//}Catch(ex)
+	//{
+	//	printf("exception103933493addAndMultiplyPositives:0x%x\n",ex);
+	//	Throw(ex);
+	//}
+	if(0)
+		throwException(ERROR_INVALID_LENGTH, NULL, 0, "The operand has invalid length");
+	return multiply(val1+val2, val3);
+}
+
+/*
+void print(int count,...){
+	int i;
+	va_list va;
+	va_start(va, count);
+	for (i=0; i<count; i++){					//va_arg is a macro
+		print("%d", va_arg(va, int));
+	}
+	va_end(va);
+	printf("/n");
+}
+*/
+
+/*
+void xtest_print(){
+	print(5, 1, 56, -34, 965);
+}
+*/
+
+void test_addAndMultiplyPositives_expectxxx()
+{
+	Try{
+	int result=addAndMultiplyPositives(3, -4, 5);
+	TEST_FAIL_MESSAGE("EXPECT ERROR_NEGATIVE_VALUE_to_be_thrown, BUT UNRECEIVED");
+	}Catch(ex)
+	{
+		//printf("exception103933493test_addAndMultiplyPositives_expectxxx:0x%x\n",ex);
+		//printf("%s (%d)\n", ex->message, ex->errorCode);
+		dumpException(ex);
+		TEST_ASSERT_EQUAL(ERROR_NEGATIVE_VALUE, ex->errorCode);
+		//freeException(ex);
+	}
+}
 /*
 void test_Side_given_3_2_1_expect_VALID()
 {
