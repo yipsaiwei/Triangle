@@ -1,4 +1,5 @@
 #include "Triangle.h"
+#include "Exception.h"
 #include "CException.h"
 
 
@@ -30,7 +31,7 @@ TriangleType getTriangleType(int side1, int side2, int side3)
 	//int	check;
 	//check=checkNegativeOrZero(side1, side2, side3);
 	if(side1<=0||side2<=0||side3<=0)
-		Throw(ERROR_INVALID_LENGTH);
+		throwException(ERROR_INVALID_LENGTH,NULL, 0, "Invalid length of the sides");
 	//if (check==INVALID)
 	//	return UNKNOWN;
 	if (side1==side2||side2==side3||side1==side3)

@@ -74,7 +74,7 @@ void test_addAndMultiplyPositives_expectxxx()
 		//printf("%s (%d)\n", ex->message, ex->errorCode);
 		dumpException(ex);
 		TEST_ASSERT_EQUAL(ERROR_NEGATIVE_VALUE, ex->errorCode);
-		//freeException(ex);
+		freeException(ex);
 	}
 }
 /*
@@ -140,8 +140,9 @@ void test_TriangleType_given_0_0_0_expect_ERROR_INVALID_LENGTH_to_be_thrown()
     TriangleType type = getTriangleType(0,0,0);
 	TEST_FAIL_MESSAGE("EXPECT ERROR_INVALID_LENGTH_to_be_thrown, BUT UNRECEIVED");
 	} Catch(ex){
-		printf("Here is an error: 0x%x INVALID SIDE LENGTH", ex);
-		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH,ex);
+		dumpException(ex);
+		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH, ex->errorCode);
+		freeException(ex);
 	}
 }
 
@@ -152,8 +153,9 @@ void test_TriangleType_given_2_1_0_expect_ERROR_INVALID_LENGTH_to_be_thrown()
     TriangleType type = getTriangleType(2, 1, 0);
 	TEST_FAIL_MESSAGE("EXPECT ERROR_INVALID_LENGTH_to_be_thrown, BUT UNRECEIVED");
 	} Catch(ex){
-		printf("Here is an error: 0x%x INVALID SIDE LENGTH", ex);
-		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH,ex);
+		dumpException(ex);
+		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH, ex->errorCode);
+		freeException(ex);
 	}
 }
 
@@ -164,8 +166,9 @@ void test_TriangleType_given_MINUS1_2_3_expect_ERROR_INVALID_LENGTH_to_be_thrown
     TriangleType type = getTriangleType(-1, 2, 3);
 	TEST_FAIL_MESSAGE("EXPECT ERROR_INVALID_LENGTH_to_be_thrown, BUT UNRECEIVED");
 	} Catch(ex){
-		printf("Here is an error: 0x%x INVALID SIDE LENGTH", ex);
-		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH,ex);
+		dumpException(ex);
+		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH, ex->errorCode);
+		freeException(ex);
 	}
 }
 
@@ -176,8 +179,9 @@ void test_TriangleType_given_4_2_MINUS2_expect_ERROR_INVALID_LENGTH_to_be_thrown
     TriangleType type = getTriangleType(4,2,-2);
 	TEST_FAIL_MESSAGE("EXPECT ERROR_INVALID_LENGTH_to_be_thrown, BUT UNRECEIVED");
 	} Catch(ex){
-		printf("Here is an error: 0x%x INVALID SIDE LENGTH", ex);
-		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH,ex);
+		dumpException(ex);
+		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH, ex->errorCode);
+		freeException(ex);
 	}
 }
 
@@ -188,8 +192,9 @@ void test_TriangleType_given_4_0_MINUS2_expect_ERROR_INVALID_LENGTH_to_be_thrown
     TriangleType type = getTriangleType(4,0,-2);
 	TEST_FAIL_MESSAGE("EXPECT ERROR_INVALID_LENGTH_to_be_thrown, BUT UNRECEIVED");
 	} Catch(ex){
-		printf("Here is an error: 0x%x INVALID SIDE LENGTH", ex);
-		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH,ex);
+		dumpException(ex);
+		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH, ex->errorCode);
+		freeException(ex);
 	}
 }
 
@@ -201,7 +206,8 @@ void test_TriangleType_given_minus_1_1_1_expect_ERROR_INVALID_LENGTH_to_be_throw
     TriangleType type = getTriangleType(-1,1,1);
 	TEST_FAIL_MESSAGE("EXPECT ERROR_INVALID_LENGTH_to_be_thrown, BUT UNRECEIVED");
 	} Catch(ex){
-		printf("Here is an error: 0x%x INVALID SIDE LENGTH", ex);
-		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH,ex);
+		dumpException(ex);
+		TEST_ASSERT_EQUAL(ERROR_INVALID_LENGTH, ex->errorCode);
+		freeException(ex);
 	}
 }
